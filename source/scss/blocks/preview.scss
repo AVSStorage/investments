@@ -1,0 +1,103 @@
+.preview {
+
+  display: flex;
+
+
+  &__wrapper {
+    justify-content: center;
+  }
+  &__title {
+    width: 100%;
+    @include title();
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    max-width: 360px;
+    min-height: 360px;
+    background-color: rgba(255,255,255,0.5);
+    position: relative;
+
+    &::after {
+      content:'';
+      width: 95%;
+      height: 95%;
+      display: none;
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid $lightBlue;
+    }
+
+    &:hover::after{
+      display: block;
+    }
+  }
+
+
+  &__text {
+    font-size: 28px;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  &__close {
+    @include close-button();
+  }
+
+}
+
+@media (min-width: $breakpoint-l ) {
+  .preview {
+    &__item {
+      width: 33%;
+    }
+
+    &__wrapper{
+      justify-content: space-around;
+    }
+
+
+  }
+}
+
+
+@media (max-width: $breakpoint-m ) {
+  .preview {
+    @include bg-full("../img/bg-mobile-first.png",0 0,no-repet,cover);
+
+    &__title {
+      @include title(40px);
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+    &__item {
+      max-width: 100%;
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+      min-height: auto;
+      margin-bottom: 20px;
+      border-radius: 0px;
+
+      &:hover::after{
+        display: none;
+      }
+
+      img {
+        width: 10%;
+      }
+    }
+
+
+    &__text {
+      padding-left: 20px;
+      text-align: left;
+      font-size: 19px;
+    }
+  }
+}

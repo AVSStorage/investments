@@ -1,0 +1,50 @@
+{
+  "name": "investments",
+  "version": "1.0.0",
+  "homepage": "https://avsstorage.github.io/investments/",
+  "private": false,
+  "scripts": {
+    "stylelint": "stylelint 'source/sass/**/*.sass' --syntax sass",
+    "test": "npm run stylelint",
+    "build": "grunt build",
+    "start": "npm run build && grunt serve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "9.6.x",
+    "grunt": "1.0.x",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-browser-sync": "2.2.x",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "^3.1.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "1.1.x",
+    "grunt-csso": "^2.2.4",
+    "grunt-cwebp": "^2.1.1",
+    "grunt-gh-pages": "^3.1.0",
+    "grunt-postcss": "^0.9.0",
+    "load-grunt-tasks": "^5.0.0",
+    "stylelint": "10.1.x"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Firefox ESR"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/less/**/*.less"
+  ],
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "gh-pages": "^2.2.0"
+  }
+}

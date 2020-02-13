@@ -1,0 +1,54 @@
+@mixin bg-full($imgpath,$position:0 0,$repeat: no-repeat, $size: cover) {
+  background: {
+    image: url($imgpath);
+    position: $position;
+    repeat: $repeat;
+    size: $size
+  }
+}
+
+@mixin circle-form() {
+  border-radius: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+@mixin list-unstyle(){
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin close-button(){
+  display: none;
+
+  @media (max-width: $breakpoint-m) {
+    display: block;
+    font-size: 0;
+    border: 0;
+    background-color: transparent;
+    width: 25px;
+    height: 13px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    padding: 0;
+    background-image: url("../img/cross.svg");
+  }
+}
+
+@mixin button($color: $blueGreen, $textColor: #fff, $paddding: 10px){
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: $color;
+  color: $textColor;
+  padding: $paddding;
+}
+
+@mixin title($fontSize: 48px){
+  font-weight: inherit;
+  font-size: $fontSize;
+  color: $textColor;
+  text-align: center;
+}

@@ -1,0 +1,226 @@
+.info {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 15%;
+  &::after {
+    content:'';
+    position: absolute;
+    width: 100%;
+    top: 90px;
+    border-bottom: 1px solid $gray;
+    z-index: -1;
+    border-bottom: 1px solid $gray;
+  }
+
+  &__wrapper{
+    display: flex;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    @include list-unstyle();
+  }
+
+  &__tab {
+    width: 100%;
+
+    font-size: 28px;
+
+    text-align: center;
+    padding-bottom: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: $gray;
+      display: block;
+
+      text-decoration: none;
+    }
+    img {
+      display: none;
+    }
+
+    &-wrapper{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 33%;
+      flex-wrap: wrap;
+      .info__body {
+        display: none;
+      }
+
+
+      &.active .info__tab a {
+        color: $lightBlue;
+      }
+
+      &.active,
+      &:hover {
+
+        border-bottom: 3px solid $lightBlue;
+        margin-bottom: -3px;
+      }
+    }
+
+
+
+  }
+
+  &__body {
+    width: 50%;
+    padding-top: 83px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__title {
+    display: none;
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  &__list {
+    @include list-unstyle();
+    counter-reset: counter;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    counter-increment: counter;
+    padding-bottom: 20px;
+    position: relative;
+    padding-left: 40px;
+
+    &::before {
+      content: counter(counter) ". ";
+      color: $lightBlue;
+      left: 0;
+      position: absolute;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+  }
+
+  &__button {
+    font-size: 18px;
+    @include button($blueGreen, #fff, 16px 26px)
+  }
+
+  &__close {
+    @include close-button();
+  }
+}
+
+
+@media (max-width: $breakpoint-m) {
+  .info {
+
+    &__title {
+      display: block;
+      @include title(40px);
+      text-align: center;
+      width: 100%;
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+
+    background-color: $brown ;
+
+    &__wrapper {
+      padding-left: 0;
+      padding-right: 0;
+
+      .info__body {
+        display: none;
+      }
+    }
+
+
+    background-image: none;
+    &::after {
+      display: none;
+    }
+
+    &__tabs {
+      flex-direction: column
+    }
+
+    &__text,
+    &__item  {
+      font-size: 16px;
+    }
+    &__body {
+      padding-top: 30px;
+      width: 100%;
+      padding-bottom: 60%;
+      padding-left: 3%;
+      padding-right: 3%;
+      @include bg-full("../img/bg-mobile.png",bottom,no-repeat,contain);
+    }
+
+
+    &__tab {
+      background-color: rgba(255, 255, 255, 0.5);
+      margin-top: 20px;
+      padding-top: 20px;
+      padding-left: 5%;
+      padding-right: 5%;
+      margin-left: 3%;
+      margin-right: 3%;
+      &-wrapper {
+
+
+        &:hover {
+          border: none;
+          margin: 0;
+        }
+
+        &.active .info__body {
+          display: flex;
+          flex-direction: column;
+        }
+
+        &.active {
+          color: $textColor;
+          border: none;
+
+          .info__tab a {
+            color: $textColor;
+          }
+        }
+
+        &.active .info__close {
+          background-image: url("../img/cross-up.svg");
+        }
+
+
+        width: 100%;
+
+        justify-content: flex-start;
+
+        a {
+          font-size: 19px;
+          margin-right: auto;
+          margin-left: 20px;
+        }
+
+        img {
+          display: block;
+          width: 10%;
+        }
+      }
+    }
+  }
+}
